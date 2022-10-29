@@ -1,6 +1,6 @@
 {
   "manifest_version": 2,
-  "name": "TwitterDev Collections Extension v0.0.2",
+  "name": "Twitter Blocker Extension v0.0.2",
   "description": "Chrome extension to help users curate tweets into Twitter Collections directly from Twitter.com.",
   "version": "0.0.2",
   "options_page": "page.html?page=settings",

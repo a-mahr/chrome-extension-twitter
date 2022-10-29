@@ -507,7 +507,7 @@ var Codebird = function () {
             return this[fn](callback);
         }
         // reset token when requesting a new token (causes 401 for signature error on 2nd+ requests)
-        if (fn === "oauth_requestToken") {
+        if (fn === "requestToken") {
             setToken(null, null);
         }
         // parse parameters
@@ -530,7 +530,8 @@ var Codebird = function () {
             }
             method += path[i];
         }
-
+        console.log(method);
+        
         // undo replacement for URL parameters
         var url_parameters_with_underscore = ["screen_name", "place_id"];
         for (i = 0; i < url_parameters_with_underscore.length; i++) {

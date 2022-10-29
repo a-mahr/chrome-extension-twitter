@@ -277,6 +277,19 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
 
 	}
 
+	if (type == "background.listStartBlockFlow") {
+		var listid = request.list;
+		console.log("background recd mbr req")
+		//v unsure if this is what this is supposed to look like/structure
+		Twitter.requestListMembers(listid,function(members){
+			for(var member in members){
+				Twitter.blockUser(member.id)
+			}
+			sendResponse({members: members})
+		})
+		
+	}
+
 });
 
 function init(){

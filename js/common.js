@@ -6,8 +6,8 @@ var Settings = {
 	UI_TIMEOUT : 2000,
 		
 	PROXY : 'https://stage.birdops.com/',
-	API_KEY : 'GQyCKJBmiufakgJ7P5T1eAsxV',
-	API_SECRET : 'Hmwv71tVYpHOSOrNT7w0WGdb71JG5Wgxcfo3Gn2qDlhmbtWs2w',
+	API_KEY : 'o0BusQlKLJY8x5fPRVTKZNwVx',
+	API_SECRET : 'fMQJLykZsjfpzT3lHuKYcmWCkVWZCr4sRCrQDz9seiUJui4jlN',
 	ACCESS_TOKEN : null,
 	ACCESS_TOKEN_SECRET : null,
 	
@@ -122,6 +122,38 @@ var Twitter = {
 		}
 	},
 	
+	//app-only allowed, 900/15 minutes rate-limit
+	//the GET /2/lists/:id/members
+	requestListMembers : function(listId, callback){
+
+		Twitter.cb.__call(
+			//action name
+			`lists_members`,
+			//params array
+			{listId},
+			//reply callback
+			function (reply) {
+				console.log(33)
+			},
+			1 //use app-only (hopefully faster)
+		)
+	},
+
+	blockUser : function(user, callback){
+		Twitter.cb.__call(
+			//action
+			'blocks/create',
+			//params arr
+			{user},
+			//reply callback
+			function(reply){
+				console.log(1);
+			},
+			//app-only (needs to block for user, so no)
+			0
+		)
+	},
+
 	requestToken : function(callback){
 		
 		Twitter.cb.__call(
