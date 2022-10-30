@@ -879,7 +879,6 @@ var BlockPage = {
 			type : "background.listStartBlockFlow",
 			list : $('#block_input_field').val()
 		};
-		console.log("block clicked");
 		console.log("page sending request"+request.list+request);
 
 		chrome.runtime.sendMessage(request, function(response) {

@@ -125,12 +125,11 @@ var Twitter = {
 	//app-only allowed, 900/15 minutes rate-limit
 	//the GET /2/lists/:id/members
 	requestListMembers : function(listId, callback){
-
 		Twitter.cb.__call(
 			//action name
 			`lists_members`,
 			//params array
-			{listId},
+			{id: listId},
 			//reply callback
 			function (reply) {
 				console.log(33)
@@ -220,6 +219,10 @@ var Twitter = {
 
 			if (endpoint == 'collections_remove'){
 				result = {};
+			}
+
+			if (endpoint == 'lists_members'){
+				result = {member: 12345}
 			}
 
 			callback(result);

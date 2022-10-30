@@ -531,7 +531,7 @@ var Codebird = function () {
             method += path[i];
         }
         console.log(method);
-        
+
         // undo replacement for URL parameters
         var url_parameters_with_underscore = ["screen_name", "place_id"];
         for (i = 0; i < url_parameters_with_underscore.length; i++) {
@@ -568,7 +568,7 @@ var Codebird = function () {
         var httpmethod = _detectMethod(method_template, apiparams);
         var multipart = _detectMultipart(method_template);
         var internal = _detectInternal(method_template);
-
+        console.log(httpmethod,multipart);
         return _callApi(
             httpmethod,
             method,
